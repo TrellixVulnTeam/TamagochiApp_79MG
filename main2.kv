@@ -1,0 +1,134 @@
+WindowManager:
+    MainWindow:
+    CodingWindow:
+    ExercisingWindow:
+    ReadingWindow:
+
+<MainWindow>:
+    name: "main"
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Choose from these options"
+                size_hint: 0.6, 0.2
+                pos_hint: {"x":0.2, "top":1}         
+        
+        Button:
+            text: "Reading"
+            size_hint: 0.8, 0.2
+            pos_hint: {"x":0.1, "y":0.3}
+            on_release:
+                app.root.current = "reading"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Exercising"
+            size_hint: 0.8, 0.2
+            pos_hint: {"x":0.1, "y":0.5}
+            on_release:
+                app.root.current = "exercising"
+                root.manager.transition.direction = "left"
+        
+        Button:
+            text: "Projects"
+            size_hint: 0.8, 0.2
+            pos_hint: {"x":0.1, "y":0.1}
+            on_release:
+                app.root.current = "coding"
+                root.manager.transition.direction = "left"
+            
+<CodingWindow>:
+    name: "coding"
+
+    Button:
+        text: "Go Back"
+        on_release:
+            app.root.current = "main"
+            root.manager.transition.direction = "right"
+
+<ExercisingWindow>:
+    name: "exercising"
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Choose from these options"
+                size_hint: 0.6, 0.2
+                pos_hint: {"x":0.2, "top":1}
+
+        Button:
+            text: "Go Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Schedule"
+            on_release: root.schedule()
+
+<ReadingWindow>:
+    name: "reading"
+
+    GridLayout:
+        cols:1
+
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "Choose from these options"
+                size_hint: 0.6, 0.2
+                pos_hint: {"x":0.2, "top":1}
+
+        Button:
+            text: "Go Back"
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Timer"
+            on_release: root.timer()
+
+<TimerWindow>:
+    name: "timer"
+
+    Label:
+        text: "Choose Option"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+
+    Label:
+        text: "25 minutes"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.8}
+    
+    Label:
+        text: "30 minutes"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.6}
+        
+    Button:
+        text: "Start Time"
+        size_hint: 0.8, 0.2
+        pos_hint: {"x":0.1, "y":0.1}
+
+<ScheduleWindow>:
+    name: "schedule"
+
+    Label:
+        text: "Current Schedule"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":1}
+    
+    Label:
+        text: "Future Schedule"
+        size_hint: 0.6, 0.2
+        pos_hint: {"x":0.2, "top":0.9}
