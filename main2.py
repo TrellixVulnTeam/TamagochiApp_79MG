@@ -14,7 +14,8 @@ class MainWindow(Screen):
 
 # coding window
 class CodingWindow(Screen):
-    pass
+     def schedule(self):
+        schedule_popup()
 
 class ExercisingWindow(Screen):
     def schedule(self):
