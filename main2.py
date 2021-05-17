@@ -51,7 +51,7 @@ def timer_popup():
     popupWindow.open()
 
 
-kv = Builder.load_file("main.kv")
+kv = Builder.load_file("main2.kv")
 
 class MyMainApp(App):
     def build(self):
