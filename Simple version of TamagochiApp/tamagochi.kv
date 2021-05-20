@@ -1,0 +1,77 @@
+#:kivy 1.0.9
+
+<PongBall>:
+    size: 50, 50
+    canvas:
+        Ellipse:
+            pos: self.pos
+            size: self.size
+
+<PongPaddle>:
+    size: 25, 200
+    canvas:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<PongEndMsg>:
+    size: 600, 150
+    button: btn.__self__
+
+    canvas:
+        Color:
+            rgba: 0,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        font_size: 70
+        center_x: root.center_x
+        top: root.top
+        id: pong_end_msg
+        text: str(root.displayText)
+        color: 0.1, 0.1, 0.1, 1
+    Button:
+        id: btn
+        background_color: 0,1,0.8,1
+        text: "Restart the game"
+        center_x: root.center_x
+        top: root.top-100
+        size: root.width, 50
+
+
+<PongGame>:
+    ball: pong_ball
+    player1: player_left.__self__
+    player2: player_right.__self__
+
+    canvas:
+        Rectangle:
+            pos: self.center_x - 5, 0
+            size: 10, self.height
+
+    Label:
+        font_size: 70
+        center_x: root.width / 4
+        top: root.top - 50
+        text: str(root.player1.score)
+
+    Label:
+        font_size: 70
+        center_x: root.width * 3 / 4
+        top: root.top - 50
+        text: str(root.player2.score)
+
+    PongBall:
+        id: pong_ball
+        center: self.parent.center
+
+    PongPaddle:
+        id: player_left
+        x: root.x
+        center_y: root.center_y
+
+    PongPaddle:
+        id: player_right
+        x: root.width - self.width
+        center_y: root.center_y
