@@ -39,7 +39,7 @@ class WindowManager(ScreenManager):
 def schedule_popup():
     show = ScheduleWindow()
 
-    popupWindow = Popup(title="Schedule Window", content=show, size_hint=(None,None),size=(400,400))
+    popupWindow = Popup(title="Schedule Window", content=show, size_hint=(None, None), size=(400, 400))
 
     popupWindow.open()
 
@@ -47,17 +47,15 @@ def schedule_popup():
 def timer_popup():
     show = TimerWindow()
 
-    popupWindow = Popup(title="Timer Window", content=show, size_hint=(None,None),size=(400,400))
+    popupWindow = Popup(title="Timer Window", content=show, size_hint=(None, None), size=(400, 400))
 
     popupWindow.open()
 
 
-kv = Builder.load_file("main2.kv")
-
-class MyMainApp(App):
+class TamagochiApp(App):
     def build(self):
-        return kv
+        pass
 
 
 if __name__ == "__main__":
-    MyMainApp().run()
+    TamagochiApp().run()
