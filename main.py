@@ -5,7 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.image import Image
 
 
-class TamagochiApp(App):
+class Tamagochi2App(App):
     
     def build(self):
         button = Button(text="Submit", font_size="30sp",
@@ -28,4 +28,4 @@ class TamagochiApp(App):
 
 
 if __name__ == "__main__":
-    TamagochiApp().run()
+    Tamagochi2App().run()
