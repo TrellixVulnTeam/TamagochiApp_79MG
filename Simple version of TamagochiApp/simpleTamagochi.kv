@@ -1,58 +1,38 @@
 #:kivy 1.0.9
 
-<PongBall>:
-    size: 50, 50
-    canvas:
-        Ellipse:
-            pos: self.pos
-            size: self.size
+<TamagochiProject>:
+    feedButton: feed_button.__self__
 
-<PongPaddle>:
-    size: 25, 200
+    size: 375, 812
+
     canvas:
         Rectangle:
-            pos: self.pos
-            size: self.size
-
-<PongEndMsg>:
-    size: 600, 150
-    button: btn.__self__
-
-    canvas:
-        Color:
-            rgba: 0,1,1,1
-        Rectangle:
-            pos: self.pos
-            size: self.size
+            size: root.size
+            pos: root.pos
+            source: "../images/tamagochi.jpg"
     Label:
-        font_size: 70
+        font_size: 25
         center_x: root.center_x
         top: root.top
-        id: pong_end_msg
-        text: str(root.displayText)
-        color: 0.1, 0.1, 0.1, 1
+        text: "This is your Tamagochi"
+        background_color: 193/255, 200/255, 199/255, 1
     Button:
-        id: btn
-        background_color: 0,1,0.8,1
-        text: "Restart the game"
-        center_x: root.center_x
-        top: root.top-100
+        id: feed_button
+        background_color: 94/256, 102/256, 104/256
+        text: "Feed Tamagochi"
+        x: root.x
+        y: root.y
         size: root.width, 50
 
 
 <ProjectPage>:
-    canvas:
-        size: 400, 800
-        Rectangle:
-            pos: self.center_x - 5, 0
-            size: 10, self.height
+    addProjectButton: add_roject_button.__self__
 
-    Label:
-        font_size: 70
-        center_x: root.width / 4
-        top: root.top - 50
+    Button:
+        id: add_roject_button
+        background_color: 94/256, 102/256, 104/256
+        text: "Add project"
+        x: root.x
+        top: root.top
+        size: root.width, 50
 
-    Label:
-        font_size: 70
-        center_x: root.width * 3 / 4
-        top: root.top - 50
