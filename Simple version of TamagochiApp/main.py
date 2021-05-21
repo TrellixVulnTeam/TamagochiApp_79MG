@@ -6,8 +6,6 @@ from kivy.properties import (
 from kivy.vector import Vector
 from kivy.clock import Clock
 
-def test(instance):
-    print("hello")
 
 
 class PongEndMsg(Widget):
@@ -108,6 +106,7 @@ class PongGame(Widget):
         self.serve_ball(vel=self.ball_velocity)
         self.gameIsCurrentlyOn = True
 
+
 class PongApp(App):
     def build(self):
         game = PongGame()
@@ -116,5 +115,20 @@ class PongApp(App):
         return game
 
 
+class ProjectPage(Widget):
+
+    def update(self, dt):
+        pass
+
+    def on_touch_move(self, touch):
+        pass
+
+class SimpleTamagochiApp(App):
+    def build(self):
+        projectPage = ProjectPage()
+        Clock.schedule_interval(projectPage.update, 1.0 / 60.0)
+        return projectPage
+
+
 if __name__ == '__main__':
-    PongApp().run()
+    SimpleTamagochiApp().run()
